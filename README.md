@@ -21,16 +21,27 @@ player.DealCard(c);
 The start game procedure should be something like:
 
 Dealer:
+
 Player: c1
+
 *pause*
+
 Dealer: c1
+
 Player: c1
+
 *pause*
+
 Dealer: c1
+
 Player: c1, c2
+
 *pause*
+
 Dealer: c1, c2
+
 Player: c1, c2
+
 
 - Update the class diagram to reflect the changes you make (it is not necessary to recreate the whole diagram only the parts that have been affected by your changes).
 You should have the following in your portflio and all parts should match
