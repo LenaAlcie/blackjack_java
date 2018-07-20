@@ -7,9 +7,8 @@ public class DealerWinsTie implements IWinnerOnTie{
 
 	@Override
 	public boolean dealerWins(Player a_player, Dealer a_dealer, int maxScore) {
-		int playerScore = a_player.CalcScore();
 		
-		if(playerScore > maxScore || playerScore >= a_dealer.CalcScore())
+		if(a_player.CalcScore() > maxScore || a_player.CalcScore() >= a_dealer.CalcScore())
 			return true;
 		return false;
 		
