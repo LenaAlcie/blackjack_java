@@ -1,5 +1,7 @@
 package view;
 
+import java.io.IOException;
+
 import model.Card;
 
 public class SwedishView implements IView{
@@ -14,18 +16,29 @@ public class SwedishView implements IView{
           System.out.println("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
       }
       
-      public int GetInput()
+      public UserChoice GetInput()
       {
-        try {
-          int c = System.in.read();
-          while (c == '\r' || c =='\n') {
-            c = System.in.read();
-          }
-          return c;
-        } catch (java.io.IOException e) {
-          System.out.println("" + e);
-          return 0;
-        }
+    	  try {
+  			int choice = System.in.read();
+  			
+  			while (choice == '\r' || choice =='\n') {
+  		           choice = System.in.read();
+  		         }
+  			
+  			if (choice == 'p') {
+  				return UserChoice.PLAY;
+  			} else if (choice == 'h') {
+  				return UserChoice.HIT;
+  			} else if (choice == 's') {
+  				return UserChoice.STAND;
+  			} else if (choice == 'q') {
+  				return UserChoice.QUIT;
+  			}
+  			
+  		}catch(IOException e) {
+  			System.out.println("" + e);
+  		}  		
+  		return null;
       }
       
       public void DisplayCard(Card a_card)

@@ -1,15 +1,41 @@
 package model.rules;
 
+import model.Card;
+import model.Player;
+import model.Card.Value;
+
 /*
+ * Soft 17 requires the dealer to hit on soft 17
+ * Example: Ace + 3 + 3
  * 
- * score > 17?
-  t: true
-  f: has aces?
-    f: false
-    t: score -10 is 6? //what if there is more aces? is that a thing? gosh I don't know how to play this game... 
-    So if you have A, Q, 2, 4 == 17 so true? then if Ace = true and others <= 16??
+ * if (total score < 17)
+ * 	r: true
+ * 
+ * if(total score == 17)
+ *  	if (has an ace)
+ *  		r: true
+ * else
+ * 	r: false
+ * 
  * */
 
-public class Soft17HitStrategy {
+public class Soft17HitStrategy implements IHitStrategy{
+
+	private final int g_hitLimit = 17;
+
+	@Override
+	public boolean DoHit(Player a_dealer) {
+		int dealerScore = a_dealer.CalcScore();
+		
+		if(dealerScore == g_hitLimit) {
+			for (Card card : a_dealer.GetHand()) {
+				if(card.GetValue() == Value.Ace) {
+					return true;
+				}
+			}
+		}		
+		return dealerScore < g_hitLimit;		
+	}
 
 }
+ 

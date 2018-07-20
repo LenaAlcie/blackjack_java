@@ -1,24 +1,28 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Player {
+public class Player implements IObservable {
 
 
 	  private List<Card> m_hand;
 	  protected final int g_maxScore = 21;
+	  private List<IObserver> observers;
 
 	  public Player()
 	  {
 	  
 	    m_hand = new LinkedList<Card>();
+	    observers = new ArrayList<IObserver>();
 	    System.out.println("Hello List World");
 	  }
 	  
 	  public void DealCard(Card a_addToHand)
 	  {
 	    m_hand.add(a_addToHand);
+	    updateObservers();
 	  }
 	  
 	  public Iterable<Card> GetHand()
@@ -72,4 +76,22 @@ public class Player {
 
 	    return score;
 	  }
+
+	@Override
+	public void add(IObserver observer) {
+		// TODO Auto-generated method stub
+		observers.add(observer);
+	}
+
+	@Override
+	public void remove(IObserver observer) {
+		// TODO Auto-generated method stub
+		observers.remove(observer);
+	}
+
+	@Override
+	public void updateObservers() {
+		// TODO Auto-generated method stub
+		observers.forEach(observer -> observer.playerCardsUpdated());
+	}
 }
