@@ -1,9 +1,9 @@
 package model;
 
-import model.rules.IHitStrategy;
-import model.rules.INewGameStrategy;
-import model.rules.IWinnerOnTie;
-import model.rules.RulesFactory;
+import model.rules.interfaces.IHitStrategy;
+import model.rules.interfaces.INewGameStrategy;
+import model.rules.interfaces.IRulesFactory;
+import model.rules.interfaces.IWinnerOnTie;
 
 public class Dealer extends Player {
 
@@ -12,11 +12,11 @@ public class Dealer extends Player {
 	  private IHitStrategy m_hitRule;
 	  private IWinnerOnTie m_winRule;
 
-	  public Dealer(RulesFactory a_rulesFactory) {
+	  public Dealer(IRulesFactory a_rulesFactory) {
 	  
-	    m_newGameRule = a_rulesFactory.GetNewGameRule();
-	    m_hitRule = a_rulesFactory.GetHitRule();
-	    m_winRule = a_rulesFactory.GetWinnerOnTie();
+	    m_newGameRule = a_rulesFactory.getNewGameStrategy();
+	    m_hitRule = a_rulesFactory.getHitStrategy();
+	    m_winRule = a_rulesFactory.getWinnerOnTie();
 	    
 	    /*for(Card c : m_deck.GetCards()) {
 	      c.Show(true);

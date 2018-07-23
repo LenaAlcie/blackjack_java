@@ -2,6 +2,7 @@ package model.rules;
 
 import model.Dealer;
 import model.Player;
+import model.rules.interfaces.IWinnerOnTie;
 
 public class DealerWinsTie implements IWinnerOnTie{
 

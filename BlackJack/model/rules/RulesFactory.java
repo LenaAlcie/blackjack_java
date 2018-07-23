@@ -1,5 +1,9 @@
 package model.rules;
 
+import model.rules.interfaces.IHitStrategy;
+import model.rules.interfaces.INewGameStrategy;
+import model.rules.interfaces.IWinnerOnTie;
+
 public class RulesFactory {
 
 	 public IHitStrategy GetHitRule() {

@@ -3,6 +3,7 @@ package model.rules;
 import model.Card;
 import model.Player;
 import model.Card.Value;
+import model.rules.interfaces.IHitStrategy;
 
 /*
  * Soft 17 requires the dealer to hit on soft 17

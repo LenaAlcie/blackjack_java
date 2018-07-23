@@ -16,7 +16,7 @@ public class Player implements IObservable {
 	  
 	    m_hand = new LinkedList<Card>();
 	    observers = new ArrayList<IObserver>();
-	    System.out.println("Hello List World");
+	    //System.out.println("Hello List World");
 	  }
 	  
 	  public void DealCard(Card a_addToHand)

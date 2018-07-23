@@ -1,6 +1,7 @@
 package model.rules;
 
 import model.Player;
+import model.rules.interfaces.IHitStrategy;
 
 public class BasicHitStrategy implements IHitStrategy {
 

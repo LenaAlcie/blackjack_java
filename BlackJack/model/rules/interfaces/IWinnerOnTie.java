@@ -1,4 +1,4 @@
-package model.rules;
+package model.rules.interfaces;
 
 import model.Dealer;
 import model.Player;

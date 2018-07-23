@@ -4,6 +4,7 @@ import model.Card;
 import model.Dealer;
 import model.Deck;
 import model.Player;
+import model.rules.interfaces.INewGameStrategy;
 
 public class AmericanNewGameStrategy implements INewGameStrategy{
 

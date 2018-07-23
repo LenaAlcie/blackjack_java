@@ -1,6 +1,6 @@
 package model;
 
-import model.rules.RulesFactory;
+import model.rules.interfaces.IRulesFactory;
 
 public class Game {
 
@@ -8,12 +8,12 @@ public class Game {
 	  private Dealer m_dealer;
 	  private Player m_player;
 
-	  public Game()
+	  public Game(IRulesFactory rules)
 	  {
-	    m_dealer = new Dealer(new RulesFactory());
+		m_dealer = new Dealer(rules);
 	    m_player = new Player();
 	  }
-	    
+	  	    
 	    
 	  public boolean IsGameOver()
 	  {
